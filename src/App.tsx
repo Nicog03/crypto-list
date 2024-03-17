@@ -8,7 +8,7 @@ const router = createBrowserRouter([
     element: <HomePage />,
   },
   {
-    path: ':currencyName',
+    path: ':currencyId',
     element: <CurrencyPage />,
   },
 ]);
