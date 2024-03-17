@@ -4,19 +4,21 @@ interface CoinCardInterface {
   coinName: string;
   coinImageUrl: string;
   coinPrice: number;
+  coinId: string;
 }
 
 export default function CoinCard({
   coinName,
   coinImageUrl,
   coinPrice,
+  coinId,
 }: CoinCardInterface) {
   const navigate = useNavigate();
 
   function changePageHandler() {
-    const currencyName = coinName.toLocaleLowerCase().replace(/ /g, '-');
+    const currencyId = coinId.toLocaleLowerCase().replace(/ /g, '-');
 
-    navigate(`${currencyName}`);
+    navigate(`${currencyId}`);
   }
 
   return (
