@@ -25,6 +25,7 @@ export default function CoinsList() {
               coinImageUrl={coin.image}
               coinName={coin.name}
               coinPrice={coin.current_price}
+              coinId={coin.id}
               key={coin.id}
             />
           );
