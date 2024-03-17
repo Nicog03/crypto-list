@@ -8,3 +8,14 @@ export async function getPopularCoins() {
   const coins = await res.json();
   return coins;
 }
+
+export async function getSpecificCoinData(coinId: string) {
+  const res = await fetch(
+    `https://api.coingecko.com/api/v3/coins/${coinId}?x_cg_demo_api_key=${
+      import.meta.env.VITE_API_KEY
+    }`
+  );
+
+  const coin = await res.json();
+  return coin;
+}
