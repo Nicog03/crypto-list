@@ -17,4 +17,6 @@ export type MarketDataType = {
   price_change_percentage_30d: number;
   price_change_percentage_60d: number;
   price_change_percentage_1y: number;
+  high_24h: { usd: number };
+  low_24h: { usd: number };
 };
