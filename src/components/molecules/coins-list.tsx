@@ -7,6 +7,7 @@ type Coin = {
   image: string;
   current_price: number;
   id: string;
+  sparkline_in_7d: { price: number[] };
 };
 
 export default function CoinsList() {
@@ -27,6 +28,7 @@ export default function CoinsList() {
               coinPrice={coin.current_price}
               coinId={coin.id}
               key={coin.id}
+              sparkline_in_7d={coin.sparkline_in_7d}
             />
           );
         })}
