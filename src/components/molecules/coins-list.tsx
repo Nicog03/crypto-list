@@ -7,6 +7,7 @@ type Coin = {
   image: string;
   current_price: number;
   id: string;
+  symbol: string;
   sparkline_in_7d: { price: number[] };
 };
 
@@ -25,6 +26,7 @@ export default function CoinsList() {
             <CoinCard
               coinImageUrl={coin.image}
               coinName={coin.name}
+              coinSymbol={coin.symbol}
               coinPrice={coin.current_price}
               coinId={coin.id}
               key={coin.id}
