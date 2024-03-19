@@ -4,10 +4,12 @@ import Header from '../components/header';
 
 export default function Root() {
   return (
-    <>
+    <div className="flex flex-col min-h-screen max-h-fit">
       <Header invert={true} />
-      <Outlet />
+      <div className="flex-grow">
+        <Outlet />
+      </div>
       <Footer />
-    </>
+    </div>
   );
 }
