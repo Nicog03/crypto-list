@@ -5,7 +5,7 @@ import BackgroundImage from '../assets/images/background.png';
 export default function HomePage() {
   return (
     <div
-      className="flex flex-col gap-3 p-2"
+      className="flex flex-col gap-3 p-2 items-center"
       style={{
         backgroundImage: `url(${BackgroundImage})`,
         backgroundSize: 'cover',
