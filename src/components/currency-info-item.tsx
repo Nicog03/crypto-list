@@ -9,8 +9,8 @@ export default function CurrencyInfoItem({
 }: CurrencyInfoItemInterface) {
   return (
     <>
-      <tr className="flex justify-between border-b dark:border-b-zinc-800 py-3 text-sm">
-        <th className="text-gray-500 dark:text-gray-300">{title}</th>
+      <tr className="flex gap-10 justify-between border-b dark:border-b-zinc-800 py-3 text-sm">
+        <th className="text-gray-500 dark:text-gray-300 text-left">{title}</th>
         <td className="text-black dark:text-white">{value}</td>
       </tr>
     </>
