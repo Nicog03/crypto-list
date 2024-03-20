@@ -22,7 +22,7 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
 
   const fetchProps = {
     coinId: currencyId!,
-    days: 7,
+    days: 1,
   };
 
   const { data } = useQuery({
@@ -42,11 +42,11 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
   return (
     <>
       {coinChartData && (
-        <div className="flex flex-col gap-2">
-          <h2 className="text-lg font-semibold text-gray-500">
-            {currencyName} Price Chart ({fetchProps.days}d)
+        <div className="flex flex-col gap-2 flex-grow w-full">
+          <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-400">
+            {currencyName} Price Chart (24h)
           </h2>
-          <ResponsiveContainer width="100%" height={200}>
+          <ResponsiveContainer width="100%" height={250}>
             <AreaChart data={coinChartData}>
               <CartesianGrid vertical={false} />
               <defs>
