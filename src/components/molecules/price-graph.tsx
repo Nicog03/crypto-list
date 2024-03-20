@@ -1,6 +1,6 @@
 import {
-  LineChart,
-  Line,
+  AreaChart,
+  Area,
   CartesianGrid,
   XAxis,
   YAxis,
@@ -47,16 +47,21 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
             {currencyName} Price Chart ({fetchProps.days}d)
           </h2>
           <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={coinChartData}>
+            <AreaChart data={coinChartData}>
               <CartesianGrid vertical={false} />
-              <Line
-                type="monotone"
-                dataKey="price"
+              <defs>
+                <linearGradient id="priceColor" x1="0" y1="0" x2="0" y2="1">
+                  <stop offset="20%" stopColor="#009D5B" stopOpacity={1} />
+                  <stop offset="95%" stopColor="#009D5B" stopOpacity={0.1} />
+                </linearGradient>
+              </defs>
+              <Area
+                type={'monotone'}
+                dataKey={'price'}
+                fill="url(#priceColor)"
                 stroke="#009D5B"
-                dot={false}
                 strokeWidth={2}
               />
-              <Line type="monotone" stroke="#000" dot={false} strokeWidth={2} />
               <YAxis
                 interval={'preserveStartEnd'}
                 domain={[
@@ -73,7 +78,7 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
               />
               <XAxis dataKey="date" hide={true} />
               <Tooltip />
-            </LineChart>
+            </AreaChart>
           </ResponsiveContainer>
         </div>
       )}
