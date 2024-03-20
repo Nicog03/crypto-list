@@ -13,17 +13,20 @@ export default function PriceRange({
 }: PriceRangeInterface) {
   return (
     <div>
-      <label className="font-semibold" htmlFor="price-range">
+      <label
+        className="font-semibold text-black dark:text-white"
+        htmlFor="price-range"
+      >
         Price Performance (24h)
       </label>
       <div className="flex justify-between text-sm font-semibold">
         <div>
-          <p className="text-gray-500">Low</p>
-          <p>{USDollar.format(low)}</p>
+          <p className="text-gray-500 dark:text-gray-400">Low</p>
+          <p className="text-black dark:text-white">{USDollar.format(low)}</p>
         </div>
         <div className="flex flex-col items-end">
-          <p className="text-gray-500">High</p>
-          <p>{USDollar.format(high)}</p>
+          <p className="text-gray-500 dark:text-gray-400">High</p>
+          <p className="text-black dark:text-white">{USDollar.format(high)}</p>
         </div>
       </div>
       <input
@@ -41,9 +44,11 @@ export default function PriceRange({
         [&::-moz-range-thumb]:bg-gray-400
         [&::-moz-range-thumb]:border-none
         [&::-webkit-slider-runnable-track]:h-1                  
-        [&::-webkit-slider-runnable-track]:bg-gray-200                  
+        [&::-webkit-slider-runnable-track]:bg-gray-200
+        dark:[&::-webkit-slider-runnable-track]:bg-zinc-700                  
         [&::-webkit-slider-runnable-track]:rounded-full                  
-        [&::-moz-range-track]:bg-gray-200                  
+        [&::-moz-range-track]:bg-gray-200         
+        dark:[&::-moz-range-track]:bg-zinc-700   
         [&::-moz-range-track]:rounded-full
 "
         type="range"

@@ -11,7 +11,7 @@ export default function PriceChangeTable({
   return (
     <table className="w-full">
       <thead>
-        <tr className="bg-slate-100">
+        <tr className="bg-slate-100 text-black dark:bg-zinc-700 dark:text-white">
           <th>24h</th>
           <th>7d</th>
           <th>14d</th>

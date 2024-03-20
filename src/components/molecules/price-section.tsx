@@ -15,11 +15,13 @@ export default function PriceSection({
 }: PriceSectionInterface) {
   return (
     <section>
-      <h2 className="font-semibold text-xl text-gray-500">
+      <h2 className="font-semibold text-xl text-gray-500 dark:text-gray-400">
         {symbol.toUpperCase()} Price
       </h2>
       <div className="flex items-center gap-2">
-        <p className="text-5xl font-bold">{USDollar.format(price)}</p>
+        <p className="text-5xl font-bold text-black dark:text-white">
+          {USDollar.format(price)}
+        </p>
         <span className="flex items-center gap-1">
           <img src={+dayValue > 0 ? GreenCaret : RedCaret} alt="" />
           <p

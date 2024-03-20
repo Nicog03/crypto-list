@@ -9,11 +9,7 @@ declare global {
   }
 }
 
-interface MetamaskSectionInterface {
-  invert: boolean;
-}
-
-export default function MetamaskSection({ invert }: MetamaskSectionInterface) {
+export default function MetamaskSection() {
   const [walletAddress, setWalletAddress] = useState('');
   const [walletBalance, setWalletBalance] = useState('');
   const [displayBalance, setDisplayBalance] = useState(false);
@@ -64,11 +60,7 @@ export default function MetamaskSection({ invert }: MetamaskSectionInterface) {
   }
 
   return (
-    <div
-      className={`${
-        invert ? 'text-black' : 'text-white'
-      } h-fit self-center  flex flex-col items-end`}
-    >
+    <div className="text-black dark:text-white h-fit self-center  flex flex-col items-end">
       {!walletAddress && (
         <button
           onClick={requestAccount}

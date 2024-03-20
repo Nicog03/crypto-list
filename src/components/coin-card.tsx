@@ -30,7 +30,7 @@ export default function CoinCard({
   return (
     <button
       onClick={changePageHandler}
-      className="w-full h-fit flex justify-between max-w-[500px] items-center bg-white/0 p-4 rounded-3xl hover:brightness-110 transition ring-1 ring-black/0 backdrop-blur-sm hover:backdrop-blur-md border-[1px] border-white/5 shadow-inner shadow-gray-500/5"
+      className="w-full h-fit flex justify-between max-w-[500px] items-center bg-white/0 p-4 rounded-3xl hover:brightness-110 transition ring-1 ring-black/0 backdrop-blur-sm hover:backdrop-blur-md border-[1px] border-black/5 dark:border-white/5 shadow-inner shadow-gray-500/5"
     >
       <div className="flex gap-4 w-full">
         <img
@@ -40,14 +40,14 @@ export default function CoinCard({
         />
         <div className=" w-full  flex items-center justify-between">
           <div className="flex flex-col items-start gap-0">
-            <p className="font-semibold text-gray-300 text-lg text-left leading-5">
+            <p className="font-semibold text-black dark:text-gray-300 text-lg text-left leading-5">
               {coinName}
             </p>
-            <p className="text-gray-400 text-sm leading-4">
+            <p className="text-gray-700 dark:text-gray-400 text-sm leading-4">
               {coinSymbol.toUpperCase()}
             </p>
           </div>
-          <p className="text text-gray-200 text-left">
+          <p className="text-gray-800 dark:text-gray-200 text-left">
             {USDollar.format(coinPrice)}
           </p>
         </div>
