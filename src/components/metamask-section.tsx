@@ -67,7 +67,7 @@ export default function MetamaskSection({ invert }: MetamaskSectionInterface) {
     <div
       className={`${
         invert ? 'text-black' : 'text-white'
-      } h-fit self-center absolute right-4 flex flex-col items-end`}
+      } h-fit self-center  flex flex-col items-end`}
     >
       {!walletAddress && (
         <button
