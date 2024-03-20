@@ -47,8 +47,8 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
             {currencyName} Price Chart ({fetchProps.days}d)
           </h2>
           <ResponsiveContainer width="100%" height={200}>
-            <LineChart data={coinChartData} margin={{ left: 20 }}>
-              <CartesianGrid strokeDasharray={2} />
+            <LineChart data={coinChartData}>
+              <CartesianGrid vertical={false} />
               <Line
                 type="monotone"
                 dataKey="price"
@@ -64,6 +64,12 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
                   'dataMax + (dataMax*0.75)',
                 ]}
                 padding={{ top: 10, bottom: 5 }}
+                tickFormatter={(value) =>
+                  new Intl.NumberFormat('en-US', {
+                    notation: 'compact',
+                    compactDisplay: 'short',
+                  }).format(value)
+                }
               />
               <XAxis dataKey="date" hide={true} />
               <Tooltip />
