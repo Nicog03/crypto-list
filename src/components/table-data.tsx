@@ -8,7 +8,7 @@ interface TableDataCellInterface {
 export default function TableDataCell({ value }: TableDataCellInterface) {
   return (
     <td
-      className={`text-center border dark:border-zinc-700 py-2 ${
+      className={`dark:bg-white/5 bg-black/5 text-center [&:not(:first-child)]:border-l  dark:border-zinc-700 py-2  ${
         +value > 0 ? `text-green-700` : `text-red-500`
       }`}
     >

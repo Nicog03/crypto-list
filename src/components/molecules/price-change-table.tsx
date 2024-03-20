@@ -9,9 +9,9 @@ export default function PriceChangeTable({
   marketData,
 }: PriceChangeTableInterface) {
   return (
-    <table className="w-full">
+    <table className="w-full overflow-hidden rounded-xl">
       <thead>
-        <tr className="bg-slate-100 text-black dark:bg-zinc-700 dark:text-white">
+        <tr className="bg-slate-100 text-black dark:bg-zinc-700 dark:text-white ">
           <th>24h</th>
           <th>7d</th>
           <th>14d</th>
@@ -21,7 +21,7 @@ export default function PriceChangeTable({
         </tr>
       </thead>
       <tbody>
-        <tr>
+        <tr className="[&:not(:first-child)]:border-l">
           <TableDataCell
             value={marketData.price_change_percentage_24h.toFixed(1)}
           />
