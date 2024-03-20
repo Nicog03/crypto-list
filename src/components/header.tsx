@@ -9,7 +9,7 @@ export default function Header({ invert = false }: { invert: boolean }) {
 
   return (
     <header
-      className={`relative flex justify-center items-center p-2 bg-black/5 ${
+      className={`relative flex justify-between items-center p-2 bg-black/5 ${
         invert ? 'bg-white/5' : ''
       }`}
     >
