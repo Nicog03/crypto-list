@@ -42,11 +42,11 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
   return (
     <>
       {coinChartData && (
-        <div className="flex flex-col gap-2 flex-grow w-full">
+        <div className="flex flex-col gap-2 flex-grow w-full ">
           <h2 className="text-lg font-semibold text-gray-500 dark:text-gray-400">
             {currencyName} Price Chart (24h)
           </h2>
-          <ResponsiveContainer width="100%" height={250}>
+          <ResponsiveContainer width="100%" height={300}>
             <AreaChart data={coinChartData}>
               <CartesianGrid vertical={false} />
               <defs>
@@ -63,6 +63,8 @@ export default function PriceGraph({ currencyName }: PriceGraphInterface) {
                 strokeWidth={2}
               />
               <YAxis
+                width={40}
+                orientation="right"
                 interval={'preserveStartEnd'}
                 domain={[
                   'dataMin - (dataMin*0.75)',
