@@ -13,7 +13,7 @@ To run the application locally on a development server locally there are some st
 
 - Get a CoinGecko DEMO API Key by following the steps at the [CoinGecko official docs](https://support.coingecko.com/hc/en-us/articles/21880397454233-User-Guide-How-to-sign-up-for-CoinGecko-Demo-API-and-generate-an-API-key)
 - Create a `.env.local` file at the root folder
-  <img align="left" width="344" height="360" src="/docs/assets/images/folder-structure.png">
+  <img src="/docs/assets/images/folder-structure.png">
 - On the `.env.local` file, create a new variable called API_KEY with your API Key as the value, just like this:
   ```
   API_KEY=00_000000000000
