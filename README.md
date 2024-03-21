@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Crypto List
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## How to preview the application
 
-Currently, two official plugins are available:
+- To access the production deploy of the aplication, just navigate to the link:
+  https://cryptolist-chi.vercel.app/
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## How to run locally
 
-## Expanding the ESLint configuration
+To run the application locally on a development server locally there are some steps that you may follow:
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
-
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+- Get a CoinGecko DEMO API Key by following the steps at the [CoinGecko official docs](https://support.coingecko.com/hc/en-us/articles/21880397454233-User-Guide-How-to-sign-up-for-CoinGecko-Demo-API-and-generate-an-API-key)
+- Create a `.env.local` file at the root folder
+- On the `.env.local` file, create a new variable called API_KEY with your API Key as the value, just like this:
+  ```
+  API_KEY=00_000000000000
+  ```
+- On the terminal, run the development server with you preferred package manager
+  ```
+   yarn wrap
+   npm run wrap
+  ```
+- On the browser, navigate to the link displayed on the terminal
