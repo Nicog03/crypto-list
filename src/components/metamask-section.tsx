@@ -2,6 +2,7 @@ import { useState } from 'react';
 import closedEye from '../assets/icons/eye-closed.svg';
 import openEye from '../assets/icons/eye-open.svg';
 import { MetaMaskInpageProvider } from '@metamask/providers';
+import AlertMessage from './alert-message';
 
 declare global {
   interface Window {
@@ -14,6 +15,7 @@ export default function MetamaskSection() {
   const [walletBalance, setWalletBalance] = useState('');
   const [displayBalance, setDisplayBalance] = useState(false);
   const [accounts, setAccounts] = useState(false);
+  const [displayAlert, setDisplayAlert] = useState(false);
 
   checkConnection();
 
@@ -42,7 +44,7 @@ export default function MetamaskSection() {
     if (window.ethereum) {
       getAccount();
     } else {
-      console.log('Metamask not detected');
+      setDisplayAlert(true);
     }
   }
 
@@ -60,7 +62,12 @@ export default function MetamaskSection() {
   }
 
   return (
-    <div className="text-black dark:text-white h-fit self-center  flex flex-col items-end">
+    <div className="text-black dark:text-white h-fit self-center flex flex-col items-end relative">
+      {displayAlert && (
+        <div className="absolute top-14 -right-11 -left-24">
+          <AlertMessage setDisplayAlert={setDisplayAlert} />
+        </div>
+      )}
       {!walletAddress && (
         <button
           onClick={requestAccount}
