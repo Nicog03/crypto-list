@@ -13,14 +13,19 @@ To run the application locally on a development server locally there are some st
 
 - Get a CoinGecko DEMO API Key by following the steps at the [CoinGecko official docs](https://support.coingecko.com/hc/en-us/articles/21880397454233-User-Guide-How-to-sign-up-for-CoinGecko-Demo-API-and-generate-an-API-key)
 - Create a `.env.local` file at the root folder
-  ![folder structure](/docs/assets/images/folder-structure.png)
+  <img align="left" width="344" height="360" src="/docs/assets/images/folder-structure.png">
 - On the `.env.local` file, create a new variable called API_KEY with your API Key as the value, just like this:
   ```
   API_KEY=00_000000000000
   ```
-- On the terminal, run the development server with you preferred package manager
+- On the terminal, install the dependencies with your preferred package manager
   ```
-   yarn wrap
-   npm run wrap
+  npm install
+  yarn install
+  ```
+- After the install, start the development server
+  ```
+  npm run dev
+  yarn dev
   ```
 - On the browser, navigate to the link displayed on the terminal
