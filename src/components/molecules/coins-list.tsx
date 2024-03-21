@@ -1,6 +1,7 @@
 import CoinCard from '../coin-card';
 import { useQuery } from '@tanstack/react-query';
 import { getPopularCoins } from '../../../api/requests';
+import LoadingCoinsList from './loading-coins-list';
 
 type Coin = {
   name: string;
@@ -12,7 +13,7 @@ type Coin = {
 };
 
 export default function CoinsList() {
-  const { data } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: ['popular-coins'],
     queryFn: getPopularCoins,
     refetchOnWindowFocus: false,
@@ -20,7 +21,10 @@ export default function CoinsList() {
 
   return (
     <div className="grid gap-2">
-      {data &&
+      {isFetching ? (
+        <LoadingCoinsList />
+      ) : (
+        data &&
         data.map((coin: Coin) => {
           return (
             <CoinCard
@@ -33,7 +37,8 @@ export default function CoinsList() {
               sparkline_in_7d={coin.sparkline_in_7d}
             />
           );
-        })}
+        })
+      )}
     </div>
   );
 }
