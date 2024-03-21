@@ -1,6 +1,7 @@
 import BlockChainIcon from '../assets/icons/blockchain-icon.svg';
 import MetamaskSection from './metamask-section';
 import { useMediaQuery } from 'react-responsive';
+import SwitchThemeButton from './switch-theme-button';
 
 export default function Header() {
   const isScreenSm = useMediaQuery({
@@ -25,7 +26,10 @@ export default function Header() {
           Crypto List
         </h1>
       </div>
-      <MetamaskSection />
+      <div className="flex gap-2 items-center">
+        <MetamaskSection />
+        <SwitchThemeButton />
+      </div>
     </header>
   );
 }
