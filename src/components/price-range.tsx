@@ -44,10 +44,10 @@ export default function PriceRange({
         [&::-moz-range-thumb]:bg-gray-400
         [&::-moz-range-thumb]:border-none
         [&::-webkit-slider-runnable-track]:h-1                  
-        [&::-webkit-slider-runnable-track]:bg-gray-200
+        [&::-webkit-slider-runnable-track]:bg-gray-500
         dark:[&::-webkit-slider-runnable-track]:bg-zinc-700                  
         [&::-webkit-slider-runnable-track]:rounded-full                  
-        [&::-moz-range-track]:bg-gray-200         
+        [&::-moz-range-track]:bg-gray-500         
         dark:[&::-moz-range-track]:bg-zinc-700   
         [&::-moz-range-track]:rounded-full
 "
