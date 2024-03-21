@@ -21,7 +21,7 @@ export default function PriceChangeTable({
         </tr>
       </thead>
       <tbody>
-        <tr className="[&:not(:first-child)]:border-l">
+        <tr>
           <TableDataCell
             value={marketData.price_change_percentage_24h.toFixed(1)}
           />
