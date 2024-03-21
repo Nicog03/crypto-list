@@ -10,8 +10,8 @@ export default function CurrencyInfoTable({
   marketData,
 }: CurrencyInfoTableInterface) {
   return (
-    <table className="w-full">
-      <tbody>
+    <table className="w-full flex flex-col h-full">
+      <tbody className="h-full flex flex-col justify-between">
         <CurrencyInfoItem
           title="Market Cap"
           value={USDollar.format(marketData.market_cap.usd)}
@@ -20,7 +20,6 @@ export default function CurrencyInfoTable({
           title="Fully Diluted Valuation"
           value={USDollar.format(marketData.fully_diluted_valuation.usd)}
         />
-        <CurrencyInfoItem title="24 Hour Trading Vol" value={'no value yet'} />
         <CurrencyInfoItem
           title="Circulating Supply"
           value={marketData.circulating_supply.toLocaleString()}
