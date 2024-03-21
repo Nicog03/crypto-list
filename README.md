@@ -5,7 +5,7 @@
 ## How to preview the application
 
 - To access the production deploy of the aplication, just navigate to the link:
-  https://cryptolist-chi.vercel.app/
+  https://nico-cryptolist.vercel.app/
 
 ## How to run locally
 
