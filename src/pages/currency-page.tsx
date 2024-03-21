@@ -9,6 +9,7 @@ import PriceGraph from '../components/molecules/price-graph';
 import PriceRange from '../components/price-range';
 import { useMediaQuery } from 'react-responsive';
 import BackgroundImage from '../assets/images/background.jpg';
+import LoadingCurrencyPage from '../components/loading-currency-page';
 
 export default function CurrencyPage() {
   const { currencyId } = useParams();
@@ -17,7 +18,7 @@ export default function CurrencyPage() {
     query: '(min-width: 640px)',
   });
 
-  const { data } = useQuery({
+  const { data, isFetching } = useQuery({
     queryKey: [`${currencyId}-data`],
     queryFn: () => getSpecificCoinData(currencyId!),
   });
@@ -32,42 +33,53 @@ export default function CurrencyPage() {
           backgroundPositionX: '50%',
         }}
       />
-      {data && (
-        <div className="flex flex-col gap-4 z-10">
-          <CurrencyHeader
-            name={data.name}
-            image={data.image.small}
-            marketCapRank={data.market_cap_rank}
-          />
-          <PriceSection
-            price={data.market_data.current_price.usd}
-            symbol={data.symbol}
-            dayValue={data.market_data.price_change_percentage_24h}
-          />
-          <div className="p-4 bg-white/0 rounded-3xl ring-1 ring-black/0 backdrop-blur-lg border-[1px] border-black/5 dark:border-white/5 shadow-inner shadow-gray-500/5">
-            <div className="flex gap-2">
-              <PriceGraph currencyName={data.name} />
-              <div>
-                {isScreenSm && (
+
+      {isFetching ? (
+        <LoadingCurrencyPage />
+      ) : (
+        data && (
+          <>
+            <div className="flex flex-col gap-8 z-10">
+              <CurrencyHeader
+                name={data.name}
+                image={data.image.small}
+                marketCapRank={data.market_cap_rank}
+              />
+              <PriceSection
+                price={data.market_data.current_price.usd}
+                symbol={data.symbol}
+                dayValue={data.market_data.price_change_percentage_24h}
+              />
+              <div className="flex flex-col gap-6 p-4 bg-white/0 rounded-3xl ring-1 ring-black/0 backdrop-blur-lg border-[1px] border-black/5 dark:border-white/5 shadow-inner shadow-gray-500/5">
+                <div className="flex gap-2">
+                  <PriceGraph currencyName={data.name} />
+                  <div>
+                    {isScreenSm && (
+                      <CurrencyInfoTable marketData={data.market_data} />
+                    )}
+                  </div>
+                </div>
+                <div
+                  className={`${isScreenSm ? 'flex gap-6 items-center' : ''}`}
+                >
+                  <div className="flex-grow">
+                    <PriceRange
+                      high={data.market_data.high_24h.usd}
+                      low={data.market_data.low_24h.usd}
+                      current={data.market_data.current_price.usd}
+                    />
+                  </div>
+                  <div className="flex-grow">
+                    <PriceChangeTable marketData={data.market_data} />
+                  </div>
+                </div>
+                {!isScreenSm && (
                   <CurrencyInfoTable marketData={data.market_data} />
                 )}
               </div>
             </div>
-            <div className={`${isScreenSm ? 'flex gap-4 items-center' : ''}`}>
-              <div className="flex-grow">
-                <PriceRange
-                  high={data.market_data.high_24h.usd}
-                  low={data.market_data.low_24h.usd}
-                  current={data.market_data.current_price.usd}
-                />
-              </div>
-              <div className="flex-grow">
-                <PriceChangeTable marketData={data.market_data} />
-              </div>
-            </div>
-            {!isScreenSm && <CurrencyInfoTable marketData={data.market_data} />}
-          </div>
-        </div>
+          </>
+        )
       )}
     </div>
   );
